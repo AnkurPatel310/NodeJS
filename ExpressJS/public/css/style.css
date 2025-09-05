@@ -1,0 +1,78 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f9;
+  color: #333;
+}
+
+/* Navbar */
+header {
+  background: #333;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn, button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.btn:hover, button:hover {
+  background: #0056b3;
+}
+
+/* Content Centering */
+.content {
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* Login Box */
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 300px;
+  margin: 100px auto;
+  text-align: center;
+}
+.login-box h2 {
+  margin-bottom: 20px;
+}
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.login-box a {
+  display: block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: none;
+}
+.login-box a:hover {
+  text-decoration: underline;
+}
