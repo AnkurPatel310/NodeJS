@@ -17,6 +17,7 @@ const userData = [{
 }];
 
 http.createServer((req, res) => {
+    // console.log(req.method);
     res.setHeader("Content-Type","application/json");
     res.write(JSON.stringify(userData));
     res.end();
