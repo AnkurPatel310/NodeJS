@@ -1,16 +1,27 @@
-const express = require('express');
+// const express = require('express');
+
+import express from 'express';
+import home from './pages/home.js';
+import about from './pages/about.js';
+import { signup } from './pages/signup.js';
+import { formSubmit } from './pages/formSubmit.js';
+
 const app = express();
 
 app.get("",(req,res)=>{
-    res.send("<h1>Home Page</h1>");
+    res.send(home());
 });
 
 app.get("/about",(req,res)=>{
-    res.send("<h1>About Page</h1>");
+    res.send(about());
 });
 
-app.get("/contact",(req,res)=>{
-    res.send("<h1>Contact Page</h1>");
+app.get("/signup",(req,res)=>{
+    res.send(signup());
+});
+
+app.post("/submit",(req,res)=>{
+    res.send(formSubmit());
 });
 
 app.listen(6100);
