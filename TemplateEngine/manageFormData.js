@@ -5,23 +5,13 @@ const app = express()
 
 app.use(morgan('dev'))
 app.set('view engine','ejs')
-app.use(express.urlencoded())
 
 app.get("/",(req,res)=>{
-    res.render("registerUser")
-})
-
-app.post("/submit",(req,res)=>{
-    const userName = req.body.username;
-    res.render("displayData",{userName:userName})
+    res.render("home",{name:"Ankur", city:"Chikhli"})
 })
 
 app.use((error,req,res,next)=>{
     res.status(error.status || 500).send("Internal Server Error")
 })
 
-app.use((req,res)=>{
-    res.status(404).render('404');
-})
-
-app.listen(6100)
+app.listen(6100);
