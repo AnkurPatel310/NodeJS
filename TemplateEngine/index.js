@@ -16,6 +16,11 @@ app.post("/submit",(req,res)=>{
     res.render("displayData",{userName:userName})
 })
 
+app.get("/list-users",(req,res)=>{
+    const users = ['akp','dkp','kp']
+    res.render("userData",{users:users})
+})
+
 app.use((error,req,res,next)=>{
     res.status(error.status || 500).send("Internal Server Error")
 })
