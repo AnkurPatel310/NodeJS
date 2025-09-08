@@ -10,9 +10,9 @@ import { viewDir } from './path.js';
 
 const app = express();
 
-const publicPath = path.resolve('public');
+// const publicPath = path.resolve('public');
 
-app.use(express.static(publicPath));
+app.use(express.static('public'));
 
 app.get("",(req,res)=>{
     // res.send(home());
