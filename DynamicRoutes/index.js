@@ -1,5 +1,5 @@
 import express from 'express'
-import { listUser, userPortfolio } from './controller/listUsers.js';
+import { idWiseData, listUser, loadJsonData, userPortfolio } from './controller/listUsers.js';
 import { handleError, handleRoute } from './controller/handleRoutes.js';
 import morgan from 'morgan';
 
@@ -11,6 +11,13 @@ app.set('view engine','ejs');
 app.get('/',listUser)
 
 app.get('/user/:name',userPortfolio)
+
+// API example with Dynamic Routes
+// List all json user data
+app.get('/list-users',loadJsonData)
+
+// Get specific json user data
+app.get('/list-user/:id',idWiseData)
 
 app.use(handleRoute)
 
