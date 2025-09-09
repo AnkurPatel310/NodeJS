@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Users Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    thead {
+      background: #3182ce;
+      color: #fff;
+    }
+    th, td {
+      padding: 14px 20px;
+      text-align: left;
+    }
+    tr:nth-child(even) {
+      background: #f9fafb;
+    }
+    tr:hover {
+      background: #edf2f7;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2d3748;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background: #3182ce;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #2b6cb0;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Students List</h1>
+    <% if (userData && userData.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% userData.forEach((user,index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= user.name %></td>
+              <td><%= user.grade %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No users found!</p>
+    <% } %>
+  </div>  
+  <a href="/signup" class="btn">+ Register New Student</a>
+</body>
+</html>

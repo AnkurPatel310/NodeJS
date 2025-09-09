@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Student</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #edf2f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      width: 320px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #2d3748;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #4a5568;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #38a169;
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #2f855a;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register Student</h2>
+    <form action="/register" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required>
+
+      <label for="grade">Grade:</label>
+      <input type="text" name="grade" id="grade" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
