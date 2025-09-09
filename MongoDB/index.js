@@ -11,16 +11,20 @@ async function dbConnection() {
         await client.connect();
         const db = client.db(dbName)
         const collection = db.collection('students');
-        const result = await collection.find().toArray();
-
-        console.log(result);
+        return await collection.find().toArray();
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
     }
 }
 
-dbConnection();
-
 const app = express();
+
+app.set('view engine','ejs')
+
+app.get('/',async (req,res)=>{
+    const studentData = await dbConnection();            
+    
+    res.render('data',{students:studentData})
+});
 
 app.listen(6100);
