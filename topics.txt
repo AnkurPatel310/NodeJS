@@ -26,3 +26,5 @@ Submit form data and display on ejs template engine page
 MVC Architecture Example
 Dynamic Routes
 API Example with Dynamic Routes
+Connect node with mongodb
+Display MongoDB Data on UI using Node.js and EJS
