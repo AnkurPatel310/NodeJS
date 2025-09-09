@@ -1,5 +1,5 @@
 import express from 'express'
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import morgan from 'morgan';
 
 const dbName = "schoolDB"
@@ -53,6 +53,28 @@ client.connect().then((connection) => {
         const data = db.collection('students');
         const result = await data.insertOne(req.body);
         res.send({ message: "Data Inserted", result: result })
+    });
+
+    // DELETE Method API
+    app.delete('/delete-user/:id', async (req, res) => {
+        const data = db.collection('students');
+        const result = await data.deleteOne({ _id: new ObjectId(req.params.id) });
+        if (result) {
+            res.send({ message: "User Deleted", success: true })
+        } else {
+            res.send({ message: "Something went wrong! Please try after some time", success: false })
+        }
+    });
+
+    // DELETE Method API for UI
+    app.get('/ui/delete-user/:id', async (req, res) => {
+        const data = db.collection('students');
+        const result = await data.deleteOne({ _id: new ObjectId(req.params.id) });
+        if (result) {
+            res.redirect("/");
+        } else {
+            res.send({ message: "Something went wrong! Please try after some time", success: false })
+        }
     });
 
     app.use((req, res) => {
