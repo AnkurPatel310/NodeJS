@@ -27,8 +27,32 @@ app.post('/save', async (req, res) => {
         res.send({ message: 'Insert Failed', result: false, data: null })
         return false;
     } else {
-        const studentData = studentModel.create(req.body);
+        const studentData = await studentModel.create(req.body);
         res.send({ message: 'Data Inserted', result: true, data: req.body })
+    }
+})
+
+// PUT API
+app.put('/update/:id', async (req, res) => {
+    const id = req.params.id;
+    if (!id || !req.body) {
+        res.send({ message: 'Update Failed', result: false, data: null })
+        return false;
+    } else {
+        const studentData = await studentModel.findByIdAndUpdate(id,req.body);
+        res.send({ message: 'Data Updated', result: true, data: req.body })
+    }
+})
+
+// DELETE API
+app.delete('/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    if (!id) {
+        res.send({ message: 'Delete Failed', result: false})
+        return false;
+    } else {
+        const studentData = await studentModel.findByIdAndDelete(id);
+        res.send({ message: 'Data Deleted', result: true })
     }
 })
 
