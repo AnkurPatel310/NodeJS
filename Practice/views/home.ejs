@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      width: 400px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2d3748;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #4a5568;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      background: #3182ce;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: #2b6cb0;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>User Information</h1>
+    <form action="/submit" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" placeholder="Enter your city" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
