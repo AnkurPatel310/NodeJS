@@ -77,6 +77,35 @@ client.connect().then((connection) => {
         }
     });
 
+    // Get specific user details and display on update page (UI)        
+    app.get('/ui/get-user-details/:id', async (req, res) => {
+        try {
+            const data = db.collection('students');
+            const result = await data.findOne({
+                _id: new ObjectId(req.params.id)
+            });
+            res.render('updateUser', { userData: result });
+        } catch (err) {
+            console.error("Error fetching user:", err);
+            res.status(500).send("Internal Server Error");
+        }
+    });
+
+    // Update specific user details        
+    app.post('/ui/update-user/:id', async (req, res) => {
+        try {
+            const data = db.collection('students');
+            const result = await data.updateOne(
+                { _id: new ObjectId(req.params.id) },
+                { $set: req.body }
+            );
+            res.redirect("/");
+        } catch (err) {
+            console.error("Error updating user:", err);
+            res.status(500).send("Internal Server Error");
+        }
+    });
+
     app.use((req, res) => {
         res.status(404).send("Page not found");
     })
