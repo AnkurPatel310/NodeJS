@@ -106,6 +106,21 @@ client.connect().then((connection) => {
         }
     });
 
+    // PUT request : Update specific user details        
+    app.put('/update/:id', async (req, res) => {
+        try {
+            const data = db.collection('students');
+            const result = await data.updateOne(
+                { _id: new ObjectId(req.params.id) },
+                { $set: req.body }
+            );
+            res.status(200).send({ message: "Data Updated Successfully", success: true,result : req.body })
+        } catch (err) {
+            console.error("Error updating user:", err);
+            res.status(500).send("Internal Server Error");
+        }
+    });
+
     app.use((req, res) => {
         res.status(404).send("Page not found");
     })
